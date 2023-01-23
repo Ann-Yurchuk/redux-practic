@@ -1,16 +1,18 @@
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { LolinPage, DashBoardPage } from 'pages';
+import { Layout } from './Layout/Layout';
+// import { Counter } from "./Counter/Counter";
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route path="login" element={<LolinPage />} />
+          <Route path="dashboard" element={<DashBoardPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Route>
+      </Routes>
+    </>
   );
 };
